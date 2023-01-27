@@ -2,11 +2,14 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>{{ img.title }}</title>
-    <h2>{{ img.title }}</h2>
+    <h2>책 목록</h2>
     <img src="{{img.image.url}}" height="30%" width="30%" class="img-thumbnail" alt="...">
-    <p>가격 : {{ price }}</p>
-    <p>평점 : {{ review }}</p>
+    <br>
+    {% for x in titles %}
+        <a href="/image/{{ x }}/">{{ x }}</a>
+        <br>
+        <br>
+    {% endfor %}
 </head>
 <body>
 

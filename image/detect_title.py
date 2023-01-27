@@ -41,7 +41,11 @@ def get_title(file_name):
     texts = response.text_annotations
 
     if texts:
-        return texts[0].description
+        result = texts[0].description
+        #줄바꿈 제거
+        if '\n' in result:
+            result = result.replace('\n', ' ')
+        return result
 
 def get_titles(dir):
     titles = glob(f'{dir}/*jpg')
