@@ -19,12 +19,14 @@ from django.contrib import admin
 from django.urls import path, include
 from django.conf import settings
 from django.conf.urls.static import static
+from image.views import DetectAPI
 
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('pybo/', include('pybo.urls')), #'pybo/'로 시작하는 페이지 요청 -> pybo/urls.py 파일의 매핑정보를 읽어서 처리
     path('image/', include('image.urls')),
+    path('api/', DetectAPI.as_view()),
 ]
 if settings.DEBUG:
     urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
